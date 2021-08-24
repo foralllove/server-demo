@@ -1,0 +1,12 @@
+server:
+  port: 9000
+spring:
+  profiles:
+    active: dev
+  application:
+    name: user-center
+  # 允许bean覆盖 支持全局配置
+  main:
+    allow-bean-definition-overriding: true
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver

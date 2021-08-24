@@ -1,0 +1,14 @@
+spring:
+  cloud:
+    nacos:
+      #Nacos服务发现
+      discovery:
+        group: ${spring.cloud.nacos.config.group}
+        namespace: ${spring.cloud.nacos.config.namespace}
+        server-addr: 192.168.1.181:8848
+      #Nacos配置中心
+      config:
+        group: ${sh.nacos.group:DEFAULT_GROUP}
+        namespace: ${sh.nacos.namespace}
+        server-addr: 192.168.1.181:8848
+        file-extension: yml

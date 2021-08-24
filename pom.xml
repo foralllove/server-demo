@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.xxx</groupId>
+    <artifactId>server-demo</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <name>server-demo</name>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>auth-center</module>
+        <module>gateway</module>
+        <module>user-center</module>
+        <module>common</module>
+    </modules>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+        <spring.boot.version>2.2.4.RELEASE</spring.boot.version>
+        <slf4j.version>1.7.30</slf4j.version>
+        <spring.boot.test.version>2.3.8.RELEASE</spring.boot.test.version>
+        <spring.boot.starter.version>2.3.8.RELEASE</spring.boot.starter.version>
+        <spring.boot.security.oauth2.resource.version>5.3.6.RELEASE</spring.boot.security.oauth2.resource.version>
+        <spring.boot.configuration.version>2.3.8.RELEASE</spring.boot.configuration.version>
+        <spring.boot.actuator.version>2.3.8.RELEASE</spring.boot.actuator.version>
+        <spring.cloud.alibaba.dependencies.version>2.2.5.RELEASE</spring.cloud.alibaba.dependencies.version>
+        <spring.boot.dependencies.version>2.3.8.RELEASE</spring.boot.dependencies.version>
+
+        <spring.cloud.gateway.version>2.2.6.RELEASE</spring.cloud.gateway.version>
+        <spring.cloud.webflux.version>2.3.8.RELEASE</spring.cloud.webflux.version>
+        <spring.cloud.nacos.version>2.2.3.RELEASE</spring.cloud.nacos.version>
+        <spring.cloud.nacos.config.version>2.2.5.RELEASE</spring.cloud.nacos.config.version>
+        <io.seata.version>1.4.1</io.seata.version>
+        <spring.social.security.version>1.1.6.RELEASE</spring.social.security.version>
+        <oauth2.starter.version>2.2.4.RELEASE</oauth2.starter.version>
+        <security.oauth2.version>2.3.8.RELEASE</security.oauth2.version>
+        <jwt.version>0.9.0</jwt.version>
+        <transmittable.version>2.11.5</transmittable.version>
+        <knife4j.version>2.0.5</knife4j.version>
+
+        <zipkin.starter.version>2.2.6.RELEASE</zipkin.starter.version>
+
+        <mysql.connector.version>8.0.22</mysql.connector.version>
+        <druid.starter.version>1.1.22</druid.starter.version>
+        <mybatis.starter.version>2.1.0</mybatis.starter.version>
+
+        <redisson.starter.version>3.11.5</redisson.starter.version>
+        <dom4j.version>1.6.1</dom4j.version>
+        <jackson.databind.version>2.11.4</jackson.databind.version>
+        <lombok.version>1.18.10</lombok.version>
+        <hutool.version>5.4.1</hutool.version>
+
+    </properties>
+
+    <dependencies>
+        <!-- 工具类 -->
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+            <optional>true</optional>
+        </dependency>
+
+        <!-- lombok -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
+        </dependency>
+
+        <!-- 测试 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+    </dependencies>
+
+    <dependencyManagement>
+        <!-- 只定义jar包版本，是否使用由子模块自行引入 -->
+        <dependencies>
+            <!-- 系统组件 -->
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+                <version>${spring.cloud.alibaba.dependencies.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring.boot.dependencies.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <!-- spring-boot test包 -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-test</artifactId>
+                <version>${spring.boot.test.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <!-- spring-boot web-->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-web</artifactId>
+                <version>${spring.boot.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.security</groupId>
+                <artifactId>spring-security-oauth2-resource-server</artifactId>
+                <version>${spring.boot.security.oauth2.resource.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-actuator</artifactId>
+                <version>${spring.boot.actuator.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-api</artifactId>
+                <version>${slf4j.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter</artifactId>
+                <version>${spring.boot.starter.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-configuration-processor</artifactId>
+                <version>${spring.boot.configuration.version}</version>
+                <scope>compile</scope>
+                <optional>true</optional>
+            </dependency>
+            <!-- 网关 -->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-gateway</artifactId>
+                <version>${spring.cloud.gateway.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-webflux</artifactId>
+                <version>${spring.cloud.webflux.version}</version>
+            </dependency>
+            <!-- nacos -->
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+                <version>${spring.cloud.nacos.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
+                <version>${spring.cloud.nacos.config.version}</version>
+            </dependency>
+
+            <!-- 认证组件(认证客户端需要实现) -->
+
+            <!-- 服务降级、限流、熔断相关组件 -->
+
+            <!-- 远程通信相关 -->
+
+            <!-- knife4j与swagger2原生支持 -->
+            <dependency>
+                <groupId>com.github.xiaoymin</groupId>
+                <artifactId>knife4j-spring-boot-starter</artifactId>
+                <version>${knife4j.version}</version>
+            </dependency>
+            <!-- openfeign-->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-openfeign</artifactId>
+                <version>2.2.6.RELEASE</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.github.xiaoymin</groupId>
+                <artifactId>knife4j-micro-spring-boot-starter</artifactId>
+                <version>${knife4j.version}</version>
+            </dependency>
+
+
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-validation</artifactId>
+            </dependency>
+
+
+            <!-- 日志相关、埋点、切面 -->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-zipkin</artifactId>
+                <version>${zipkin.starter.version}</version>
+            </dependency>
+            <!-- seata-分布式事务管理 -->
+            <dependency>
+                <groupId>io.seata</groupId>
+                <artifactId>seata-spring-boot-starter</artifactId>
+                <version>${io.seata.version}</version>
+            </dependency>
+
+            <!-- security oauth2的处理 -->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-oauth2</artifactId>
+                <version>${oauth2.starter.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.security.oauth</groupId>
+                <artifactId>spring-security-oauth2</artifactId>
+                <version>${security.oauth2.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.social</groupId>
+                <artifactId>spring-social-security</artifactId>
+                <version>${spring.social.security.version}</version>
+                <optional>true</optional>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.security</groupId>
+                <artifactId>spring-security-config</artifactId>
+                <version>${spring.boot.security.oauth2.resource.version}</version>
+            </dependency>
+
+<!--            <dependency>-->
+<!--                <groupId>io.jsonwebtoken</groupId>-->
+<!--                <artifactId>jjwt</artifactId>-->
+<!--                <version>${jwt.version}</version>-->
+<!--            </dependency>-->
+
+            <!-- 数据库 -->
+            <!-- mybatis -->
+            <dependency>
+                <groupId>org.mybatis.spring.boot</groupId>
+                <artifactId>mybatis-spring-boot-starter</artifactId>
+                <version>${mybatis.starter.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid-spring-boot-starter</artifactId>
+                <version>${druid.starter.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.springframework.boot</groupId>
+                        <artifactId>spring-boot-starter-web</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql.connector.version}</version>
+                <scope>runtime</scope>
+            </dependency>
+
+            <!--   工具类     -->
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-all</artifactId>
+                <version>${hutool.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+            </dependency>
+
+            <!-- 在Redis基础上的一个Java实用工具包 -->
+            <dependency>
+                <groupId>org.redisson</groupId>
+                <artifactId>redisson-spring-boot-starter</artifactId>
+                <version>${redisson.starter.version}</version>
+            </dependency>
+
+            <!-- xml处理 -->
+<!--            <dependency>-->
+<!--                <groupId>dom4j</groupId>-->
+<!--                <artifactId>dom4j</artifactId>-->
+<!--                <version>${dom4j.version}</version>-->
+<!--            </dependency>-->
+
+            <!-- jackson json转换器 -->
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-databind</artifactId>
+                <version>${jackson.databind.version}</version>
+            </dependency>
+
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-maven-plugin</artifactId>
+                    <version>2.3.8.RELEASE</version>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>2.3.2</version>
+                    <configuration>
+                        <source>8</source>
+                        <target>8</target>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+</project>

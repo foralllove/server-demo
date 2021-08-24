@@ -1,0 +1,16 @@
+server:
+  port: 9001
+spring:
+  profiles:
+    active: dev
+  application:
+    name: auth-center
+  # 允许bean覆盖 支持全局配置
+  main:
+    allow-bean-definition-overriding: true
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+oauth2:
+  token:
+    store:
+      type: redis

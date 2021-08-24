@@ -1,0 +1,10 @@
+server:
+  port: 9002
+spring:
+  profiles:
+    active: dev
+  application:
+    name: gateway
+  # 允许bean覆盖 支持全局配置
+  main:
+    allow-bean-definition-overriding: true
