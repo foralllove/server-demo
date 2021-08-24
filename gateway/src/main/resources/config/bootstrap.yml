@@ -5,11 +5,11 @@ spring:
       #Nacos服务发现
       discovery:
         group: ${spring.cloud.nacos.config.group}
-        namespace: ${spring.cloud.nacos.config.namespace}
+        #        namespace: ${spring.cloud.nacos.config.namespace}
         server-addr: ${spring.cloud.nacos.config.server-addr}
       #Nacos配置中心
       config:
-        group: ${sh.nacos.group:DEFAULT_GROUP}
-        namespace: ${sh.nacos.namespace:39ec4e9f-c32d-43d9-bf06-2ad68c4e937c}
-        server-addr: ${sh.nacos.server-addr:192.168.1.181:8848}
+        group: DEFAULT_GROUP
+        #        namespace: ${sh.nacos.namespace:39ec4e9f-c32d-43d9-bf06-2ad68c4e937c}
+        server-addr: 192.168.1.181:8848
         file-extension: yml

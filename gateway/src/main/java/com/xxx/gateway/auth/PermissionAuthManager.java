@@ -1,6 +1,6 @@
 package com.xxx.gateway.auth;
 
-import org.apache.commons.lang3.StringUtils;
+import cn.hutool.core.util.StrUtil;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.server.reactive.ServerHttpRequest;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
@@ -59,7 +59,7 @@ public class PermissionAuthManager implements ReactiveAuthorizationManager<Autho
         String requestPath = request.getURI().getPath();
 
         Collection<GrantedAuthority> authorities = auth2Authentication.getAuthorities();
-        return authorities.parallelStream().anyMatch(e -> StringUtils.isNotEmpty(e.getAuthority()) && antPathMatcher.match(e.getAuthority(), requestPath));
+        return authorities.parallelStream().anyMatch(e -> StrUtil.isNotEmpty(e.getAuthority()) && antPathMatcher.match(e.getAuthority(), requestPath));
     }
 
 }

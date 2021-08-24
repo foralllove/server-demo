@@ -13,7 +13,7 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
  * @company 数海掌讯
  */
 @EnableDiscoveryClient
-@SpringBootApplication(scanBasePackages = {"com.xxx"})
+@SpringBootApplication
 public class GatewayApplication {
     public static void main(String[] args) {
         SpringApplication.run(GatewayApplication.class, args);
